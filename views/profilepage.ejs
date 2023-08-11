@@ -1,0 +1,159 @@
+<%- include("./partial/header.ejs")%>
+    <link rel='stylesheet' href='../stylesheets/profilepage.css' />
+
+    <div id="main">
+        <div id="m1">
+
+            <div id="profilepage">
+                <div id="coverphoto">
+                    <div id="cphoto"><img src="../images/uploads/coverDefault.jpg" alt=""></div>
+                </div>
+                <div id="profilephoto">
+                    <div id="displaypic">
+                        <div id="uploadicon"><i class="ri-camera-fill"></i></div>
+                        <form id="uploadprofile" action="/uploadprofile" method="post" enctype="multipart/form-data">
+                            <input id="select" type="file" name="profileimg" onchange="submit()">
+
+                        </form>
+                        <img src="../images/uploads/<%=userdata.profile%>" alt="">
+
+                    </div>
+                    <div id="username">
+                        <div id="name">
+                            <h3>
+                                <%=userdata.First_Name +" "+ userdata.Last_name%></h3></div>
+        <div id="totalfriends">
+                                    <h4>353 friends</h4>
+                        </div>
+                    </div>
+
+                    <div id="edit">
+                        <button>
+                            <div id="editicon"><i class="ri-pencil-fill"></i></div> Edit profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="main2">
+                <div id="intro">
+                    <div id="introduction">
+
+                    </div>
+                </div>
+                <div id="Post">
+                    <div id="posting">
+
+                        <div id="postform">
+                            <div id="postdp"> <img src="../images/uploads/<%=userdata.profile%>" alt=""></div>
+                            <form action="/createpost" enctype="multipart/form-data" method="post">
+                                <input id="cap" type="text" placeholder="What's on your mind" name="postcaption">
+                                <input id="imgformupload" style="display: none;" type="file" name="post">
+                                <input id="formpostbtn" style="display: none;" type="submit">
+                            </form>
+                            <div id="postpicupload"><i class="ri-video-upload-line"></i></div>
+
+                        </div>
+                        <div id="submitpost"><button id="postbtn">Post</button></div>
+
+                    </div>
+                    <div id="postarea">
+
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div id="menuList"></div>
+
+
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+        integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var icon = document.querySelector(".ri-image-add-line")
+        var selectpost = document.querySelector("#selectpostpic")
+        var submitpost = document.querySelector("#submitpost")
+        var submitbutton = document.querySelector("#submitbutton")
+        var select = document.querySelector("#select")
+        var submit = document.querySelector("#submit")
+        var clickdiv = document.querySelector("#displaypic")
+        var postbtn = document.querySelector("#postbtn")
+        var formpostbtn = document.querySelector("#formpostbtn")
+        var uploadicon = document.querySelector(".ri-video-upload-line")
+        var formupload = document.querySelector("#imgformupload")
+        var postarea = document.querySelector("#postarea")
+
+
+
+
+        async function axiosPost() {
+            var post = await axios.post("/findposts")
+            var clutter = ``
+            post.data.postdata.post.reverse().forEach(function (postdetails, index) {
+
+                clutter += `
+            <div id="post1">    
+                <div id="postedtopel">
+                    <div id="align">     <div id="posteddp"> <img src="../images/uploads/<%=userdata.profile%>" alt=""></div>
+                <div id="postedusername"><h3><%=userdata.First_Name +" "+ userdata.Last_name%></h3></div></div>
+               
+                <div id="postmoreicon"><i class="ri-more-line">
+                    <div id="menuList">
+                        <div id="updatepost"><a href="${postdetails._id}">update</a></div>
+                        <div id="deletepost"><a href="${postdetails._id}">Delete</a></div>
+                        </div>
+                    </i>
+                    </div>
+                </div>
+                
+                
+                <div id="posttextdiv"><h3>${postdetails.postdetails}</h3></div>
+                <div id="postimg">
+                    <img src="../images/postuploads/${postdetails.postPic}" alt="">
+                    </div>
+                <div id="likeANDcomment">
+                <div id="likepost"> <button><i class="ri-thumb-up-fill"></i><h3>Like</h3></button></div>
+                <div id="commentpost">  <button><i  class="ri-chat-3-line"></i>
+           <h3>Comment</h3></button></div>
+                </div>
+                </div>`
+
+            })
+            postarea.innerHTML = clutter
+        }
+
+        axiosPost()
+        //  var postmoreicon = document.querySelector("#postmoreicon")
+
+        // postmoreicon.addEventListener("click",function(){
+        //         alert("hellow")
+        //      })
+
+        uploadicon.addEventListener("click", function () {
+            formupload.click()
+        })
+
+        postbtn.addEventListener("click", function () {
+            formpostbtn.click()
+        })
+        clickdiv.addEventListener("click", function () {
+            select.click()
+
+        })
+        function submit() {
+            var upload = document.querySelector("#uploadprofile")
+            upload.submit()
+        }
+
+        icon.addEventListener("click", function () {
+            selectpost.click()
+        })
+        submitbutton.addEventListener("click", function () {
+            submitpost.click()
+        })
+
+    </script>
+    <%- include("./partial/footer.ejs")%>

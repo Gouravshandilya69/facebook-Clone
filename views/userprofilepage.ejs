@@ -1,0 +1,81 @@
+<%- include("./partial/header.ejs")%>
+    <link rel='stylesheet' href='../stylesheets/userprofilepage.css' />
+
+    <div id="main">
+        <div id="m1">
+
+            <div id="profilepage">
+                <div id="coverphoto">
+                    <div id="cphoto"><img src="../images/uploads/coverDefault.jpg" alt=""></div>
+                </div>
+                <div id="profilephoto">
+                    <div id="displaypic">
+                        <div id="uploadicon"><i class="ri-camera-fill"></i></div>
+                        <form id="uploadprofile" action="/uploadprofile" method="post" enctype="multipart/form-data">
+                            <input id="select" type="file" name="profileimg" onchange="submit()">
+                            
+                        </form>
+                        <img src="../images/uploads/<%=founduser.profile%>" alt="">
+                        
+                    </div>
+                    <div id="username">
+                        <div id="name">
+                            <h3>
+                                <%=founduser.First_Name +" "+ founduser.Last_name%></h3></div>
+        <div id="totalfriends">
+                                    <h4>353 friends</h4>
+                        </div>
+                    </div>
+
+                    <div id="edit">
+                        <button>
+                            <div id="editicon"><i class="ri-user-add-fill"></i></div> Add Friend
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="intro">
+                <div id="introduction">
+                   <div id="introhead"><h1>Intro</h1></div>
+                    <div id="introfrom">From <h4> <%=founduser.First_Name +" "+ founduser.Last_name%> </h4></div>
+                    <div id="introwent">Went to <h4> eagea </h4></div>
+                    <div id="introjoin">Joined on <h4> aetg</h4></div>
+                    <div id="adddetails"><button><h4>Edit details</h4></button></div>
+                     <div id="addhobbies"><button><h4>Add Hobbies</h4></button></div>
+                </div>
+                <div id="postpage">
+                    <div id="post">
+                        <div id="show"><img src="../images/uploads/<%=founduser.profile%>" alt=""></div>
+                        <div id="inputpost"> <form action="">
+                            <input type="text" name="postcaption" placeholder="What's on your mind?">
+                            <input  id="postsubmit" type="submit">
+                        </form></div>
+                        <div id="uploadpostphoto">
+                            <form action="" enctype="multipart/form-data">
+                            <input type="file" name="post" >
+                            <input type="submit">
+                        </form></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // var select = document.querySelector("#select")
+        // var submit = document.querySelector("#submit")
+        // var clickdiv = document.querySelector("#displaypic")
+         
+        // clickdiv.addEventListener("click",function(){
+        //     select.click()
+            
+        // })
+        // function submit(){
+        //     var upload = document.querySelector("#uploadprofile")
+        //     upload.submit()
+        // }
+         
+
+    </script>
+    <%- include("./partial/footer.ejs")%>

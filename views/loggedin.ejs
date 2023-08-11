@@ -1,0 +1,78 @@
+<%-include("./partial/header.ejs")%>
+  <link rel="stylesheet" href="../stylesheets/loggedin.css">
+  <div id="threee">
+    <div id="m1">
+      <div id="div1">
+
+      </div>
+      <div id="div2">
+        <!-- <div id="post">
+          <div id="posted">
+            <div id="titleeee">
+              <div id="dp1"><a id="justin" href="/profilepage"><img src='../images/uploads/<%=userdata.profile%>' alt=""></a></div>
+              <div id="usernaaam">
+                <h4>
+                  <%=userdata.First_Name +" "+ userdata.Last_name%></h4></div>
+  </div>
+  <div id=" headpost">
+                    <div id="postpic"><img src="" alt=""></div>
+              </div>
+              <div id="likecom">
+                <div id="like"><button>
+                    <div id="likeicon"><i class="ri-thumb-up-line"></i></div>like
+                  </button></div>
+                <div id="comment"><button>
+                    <div id="commenticon"><i class="ri-chat-3-line"></i></div> comment
+                  </button></div>
+              </div>
+            </div>
+          </div> -->
+
+
+
+        </div>
+        <div id="div3" >
+          <div id="contacts">
+            <h3>contacts</h3>
+            <div id="searchuser">
+              <i class="ri-search-line"></i>
+              <form id="hide">
+                <input type="text" placeholder="Enter the name" name="nametobefind">
+              </form>
+            </div>
+          </div>
+          <div id="friendss">
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+    integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    var friends = document.querySelector("#friendss")
+    axios.get("/findall").then(function (alluser) {
+      var clutter2 = ``
+
+      alluser.data.alluser.forEach(function (all) {
+        clutter2 += ` <div id="friends">
+              <div id="dp">
+                <a href="/usersprofilepage/${all._id}"> <img src="../images/uploads/${all.profile}" alt=""></a>
+               
+          </div>
+              <div id="username"> <a href="/usersprofilepage/${all._id}"><h3>${all.First_Name + " " + all.Last_name}</h3></a></div>
+              </div>`
+
+      })
+      friends.innerHTML = clutter2
+      console.log(clutter2)
+    })
+
+
+
+  </script>
+  <%-include("./partial/footer.ejs")%>

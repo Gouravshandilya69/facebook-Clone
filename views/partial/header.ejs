@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>facebook</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <div id="main3">
+    <div id="nav">
+      <div id="facebookhead">
+        <a href="/loggedin">
+          <h1>facebook</h1>
+        </a>
+      </div>
+      <div id="searchpeeps">
+
+        <form action="">
+          <input type="search" id="searchnameinput" name="searched" placeholder="search facebook">
+        </form>
+        <div id="opensearch">
+
+        </div>
+      </div>
+      <div id="rightthree">
+        <div id="one" class="o"><i class="ri-messenger-fill"></i></div>
+        <div id="two" class="o"><i class="ri-notification-4-fill"></i></div>
+        <div id="three" class="o"><a id="dpimg" href="/profilepage"> </a></div>
+      </div>
+
+
+  
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+      integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      var inp = document.querySelector("#searchnameinput")
+      var dp = document.querySelector("#dpimg")
+
+   
+      
+      inp.addEventListener("input", function () {
+     if(inp.value.trim().length>0){
+          axios.get(`/search/${inp.value}`).then(function (name) {
+            var clutter = ``
+            name.data.name.forEach(function (n) {
+              clutter += `<div id="userrrr">
+            <div id="searchdp"><img src="/images/uploads/${n.profile}" alt=""></div>
+            <div id="searchname"><h4>${n.First_Name + " " + n.Last_name}</h4></div>
+           <div id="searchadd"><i  id="aclick"  class="ri-user-add-line"></i></div>
+           <div id="iddiv"><h1  id="iddi" >${n._id}</h1></div>
+          </div>`
+         
+     })
+          document.querySelector("#opensearch").innerHTML = clutter
+          document.querySelector("#opensearch").style.display = "initial"
+         
+ })
+    
+        }else{
+          document.querySelector("#opensearch").innerHTML = ""
+          document.querySelector("#opensearch").style.display = "none"
+        }
+      })
+      
+     
+
+      
+
+
+      axios.get("/dp").then(function(profile){
+        // console.log(profile.data.profile.profile)
+        dp.innerHTML=`<img src="/images/uploads/${profile.data.profile.profile}" alt="">`
+      })
+    </script>

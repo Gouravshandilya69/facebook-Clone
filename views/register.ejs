@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>facebook</title>
+  <link rel='stylesheet' href='/stylesheets/register.css' />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="main">
+    <div id="registerform">
+      <div id="header">
+        <div id="signup">
+          <h1>Sign Up <br> It's quick and easy.</h1>
+        </div>
+        <div id="cross"><a href="/"><i class="ri-close-line"></i></a></div>
+      </div>
+      <div id="userinfo">
+
+        <div id="firstname">
+          <form action="/create" method="post">
+            <div id="i1"><input type="text" name="firstname" placeholder="Enter your first name"></div>
+            <div id="i1"><input type="text" name="lastname" placeholder="Enter your last name"></div>
+
+        </div>
+
+        <div id="email">
+          <input id="l2" type="email" name="username" placeholder="Enter your email">
+          <input id="l2" type="password" name="password" placeholder="enter your password">
+        </div>
+        <div id="dob">
+          <div id="dobhead">
+            <h5>Date of birth</h5>
+          </div>
+
+          <div id="date">
+
+
+            <select name="date">
+              <option value="0">
+                Select date
+              </option>
+              <%for(let i=1;i<=31; i++ ){%>
+                <option value="<%=i%>">
+                  <%=i%>
+                </option>
+                <%}%>
+            </select>
+
+
+            <select name="month">
+              <option value="0">
+                Select month
+              </option>
+              <%for(let i=1;i<=12; i++ ){%>
+                <option value="<%=i%>">
+                  <%=i%>
+                </option>
+                <%}%>
+            </select>
+
+            <!-- <label> Select year </label> -->
+            <select name="year">
+              <option value="0">
+                Select year
+              </option>
+              <%for(let i=1950;i<=2023; i++ ){%>
+                <option value="<%=i%>">
+                  <%=i%>
+                </option>
+                <%}%>
+            </select>
+          </div>
+
+
+        </div>
+        <div id="gender">
+          <select name="gender">
+            <option value="0">Gender</option>
+            <option value="male">Male</option>
+            <option value="female">female</option>
+          </select>
+        </div>
+           <div id="submit">
+        <input type="submit" value="Sign up">
+      </div>
+    </form>
+      </div>
+    
+    </div>
+    <div id="main3">
+    <div id="main2">
+      <div id="heading">
+        <div id="facebook">
+          <h1>facebook</h1>
+        </div>
+        <div id="headingpera">
+          <h2>Facebook helps you connect and share with the people in your life.</h2>
+        </div>
+      </div>
+      <div id="login">
+        <form action="/login" method="post">
+          <input id="input1" type="text" name="username" placeholder="Email address or phone number">
+          <input id="input1" type="text" name="password" placeholder="password">
+          <input id="log" type="submit" value="Log in">
+        </form>
+        <div id="forgot"><a href="/forget">
+            <h5>Forgotten password?</h5>
+          </a></div>
+        <div id="create"><a href="/register">
+            <h5>Create new account</h5>
+          </a></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="../javascripts/script.js"></script>
+</body>
+
+</html>
