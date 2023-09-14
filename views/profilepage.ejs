@@ -6,12 +6,18 @@
 
             <div id="profilepage">
                 <div id="coverphoto">
-                    <div id="cphoto"><img src="../images/uploads/coverDefault.jpg" alt=""></div>
+                    <div id="cphoto">
+                        <img src="../images/coverphotos/<%=userdata.coverphoto%>" alt="">
+                    <form id="coverform" action="/setcoverpic" method="post" style="display: none;" enctype="multipart/form-data">
+                        <input id="setcover" type="file" name="coverphoto" onchange="coversubmit()">
+                      
+                    </form>
+                    </div>
                 </div>
                 <div id="profilephoto">
-                    <div id="displaypic">
+                    <div id="displaypic" >
                         <div id="uploadicon"><i class="ri-camera-fill"></i></div>
-                        <form id="uploadprofile" action="/uploadprofile" method="post" enctype="multipart/form-data">
+                        <form id="uploadprofile"  action="/uploadprofile" method="post" enctype="multipart/form-data">
                             <input id="select" type="file" name="profileimg" onchange="submit()">
 
                         </form>
@@ -37,7 +43,7 @@
             <div id="main2">
                 <div id="intro">
                     <div id="introduction">
-
+                     
                     </div>
                 </div>
                 <div id="Post">
@@ -57,15 +63,13 @@
 
                     </div>
                     <div id="postarea">
-
-
+                      
                     </div>
 
 
                 </div>
             </div>
-            <div id="menuList"></div>
-
+            
 
         </div>
     </div>
@@ -85,7 +89,7 @@
         var uploadicon = document.querySelector(".ri-video-upload-line")
         var formupload = document.querySelector("#imgformupload")
         var postarea = document.querySelector("#postarea")
-
+        var cphoto = document.querySelector("#cphoto")
 
 
 
@@ -93,7 +97,7 @@
             var post = await axios.post("/findposts")
             var clutter = ``
             post.data.postdata.post.reverse().forEach(function (postdetails, index) {
-
+             
                 clutter += `
             <div id="post1">    
                 <div id="postedtopel">
@@ -112,7 +116,11 @@
                 
                 <div id="posttextdiv"><h3>${postdetails.postdetails}</h3></div>
                 <div id="postimg">
-                    <img src="../images/postuploads/${postdetails.postPic}" alt="">
+                   
+                  
+                   <img src="../images/postuploads/${postdetails.postPic}" alt="">
+                
+                
                     </div>
                 <div id="likeANDcomment">
                 <div id="likepost"> <button><i class="ri-thumb-up-fill"></i><h3>Like</h3></button></div>
@@ -132,6 +140,13 @@
         //         alert("hellow")
         //      })
 
+        cphoto.addEventListener("click",function(){
+            document.querySelector("#setcover").click()
+        })
+        function coversubmit(){
+            let cf=document.querySelector("#coverform")
+            cf.submit()
+        }
         uploadicon.addEventListener("click", function () {
             formupload.click()
         })
@@ -141,7 +156,7 @@
         })
         clickdiv.addEventListener("click", function () {
             select.click()
-
+            
         })
         function submit() {
             var upload = document.querySelector("#uploadprofile")

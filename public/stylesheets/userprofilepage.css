@@ -1,313 +1,605 @@
 *{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: Arial, Helvetica, sans-serif;
-}
-html,body
-{
-height: 100%;
-width: 100%;
-
-}
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #414344;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background:#5f6263;
-
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background:#2F3031;
-  }
-#main{
-    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+    html,body
+    {
     height: 100%;
-    display: flex;
-    align-items: flex-end;
-   
-    background-color: #242526;   
- }
-#m1{
     width: 100%;
-   height: 95%;
-    background-color: #242526;
     
-
-  }
-    #profilepage{
+    }
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #414344;
+      }
+      
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background:#5f6263;
+    
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background:#2F3031;
+      }
+    #main{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+       
+        background-color: #242526;   
+     }
+    #m1{
+        width: 100%;
+       height: 95%;
+        background-color: #242526;
+        
+    
+      }
+        #profilepage{
+        width: 100%;
+        height: 80%;
+       
+        
+        }
+    
+    #coverphoto{
     width: 100%;
     height: 80%;
-   
-    
-    }
-
-#coverphoto{
-width: 100%;
-height: 80%;
-background-color: #2F3031;
-display: flex;
-justify-content: center;
-align-items: center;
-
-
-    }
-
-#cphoto{
-width: 80%;
-height: 100%;
-background-color: #2F3031;
-
-
-}
-#cphoto img{
-    width: 100%;
-    height: 100%;
-}
-
-#profilephoto{
-    width: 100%;
-    height: 20%;
     background-color: #2F3031;
-    display: flex;
-    align-items: flex-end;
-    padding-left: 20px;
-    border-bottom: 1px solid #4E4F50;
-}
-
-#displaypic{
-    z-index: 9;
-    position: relative;
-    width: 160px;
-    height: 160px;
-    /* background-color: #2F3031; */
-    border-radius: 100%;
-   background-color: antiquewhite;
-   cursor: pointer;
-    border: solid 10px #242526;
-}
-#displaypic img{
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    object-fit: cover;
- 
-}
-#uploadicon {
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #4E4F50;
-   
-    color: white;
-   font-size: 35px;
- 
-    width: 50px;
-    height: 50px;
     
-    border-radius: 100%;
-    cursor: pointer;
-}
-
-#username{
-width: 30%;
-height: 100%;
-background-color: #2F3031;
-display: flex;
-padding-top: 25px;
-padding-left: 20px;
-
-flex-direction: column;
-}
-#name h3{
-    font-size: 35px;
-    text-transform: capitalize;
-    font-weight: 600;
-    color: white;
-}
-#totalfriends h4{
-    font-size: 15px;
-    text-transform: capitalize;
-    color:  white ;
-    font-weight: 300;
-    padding-left: 5px;
-}
-#edit{
-    width: 57%;
-    height: 100%;
-    background-color: #2F3031;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 100px;
-}
-#edit button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 150px;
-    height: 30px;
-    background-color: #3982E4;
-    border: none;
-    outline: none;
-    border-radius: 9px 9px;
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-#intro{
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: #242526;
-  display: flex;
-    border-right: 145px solid #242526 ;
-    border-left: 145px solid #242526;
-}
-#introduction{
-    width: 30%;
-    height: 50%;
-    background-color: #2F3031;
-    margin: 15px;
-    border-radius: 9px 9px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-#uploadprofile{
-    display: none;
-
-}
-#introhead h1{
-    color: white;
-    font-weight: 500;
-}
-#introfrom{
-    width: 100%;
-    height: auto;
-    color: white;
-    display: flex;
-    gap: 5px;
-}
-#introwent{
-    width: 100%;
-    height: auto;
-    color: white;
-    display: flex;
-    gap: 5px;
-}
-#introjoin{
-    width: 100%;
-    height: auto;
-  color: white;
-  display: flex; 
-  gap: 5px;
-
-}
-
-
-#adddetails{
-    width: 100%;
-    height: 10%;
-   
-    border-radius: 9.5px 9.5px;
-}
-#adddetails button{
-    width: 100%;
-    height: 100%;
-    background-color:#4E4F50 ;
-    border: none;
-    outline: none;
-    border-radius: 9.5px 9.5px;
-    cursor: pointer;
-}
-#adddetails h4 {
-    color: white;
-    font-weight: 300;
-}
-
-#addhobbies{
-    width: 100%;
-    height: 10%;
-    border-radius: 9.5px 9.5px;
-}
-#addhobbies button{
-    width: 100%;
-    height: 100%;
-    background-color:#4E4F50 ;
-    border: none;
-    outline: none;
-    border-radius: 9.5px 9.5px;
-    cursor: pointer;
-}
-#addhobbies h4 {
-    color: white;
-    font-weight: 300;
-}
-
-#postpage{
-    width: 70%;
-    height: 100%;
-    background-color: aqua;
-    display: flex; 
-    flex-direction: column;
-    padding: 20px 0 0 20px;
-    align-items: center;
-}
-
-#post{
-    width: 90%;
-    height: 20%;
-    background-color: #242526;
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    gap: 10px;
-}
-
-#show{
-    width: 50px;
-    height: 50px;
-    background-color: pink;
-    border-radius: 100%;
-    overflow: hidden;
     
-}
-#show img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-#postsubmit{
-    display: none;
-}
-
-#inputpost{
+        }
+    
+    #cphoto{
     width: 80%;
-    height: 30%;
-    background-color: aquamarine;
-    border-radius: 20px 20px;
-    
-}
-#inputpost input{
-    width: 100%;
     height: 100%;
-    outline: none;
-    border: none;
-    border-radius: 20px 20px;
-}
+    background-color: #2F3031;
+    
+    
+    }
+    #cphoto img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    #profilephoto{
+        width: 100%;
+        height: 20%;
+        background-color: #2F3031;
+        display: flex;
+        align-items: flex-end;
+        padding-left: 20px;
+        border-bottom: 1px solid #4E4F50;
+    }
+    
+    #displaypic{
+        z-index: 9;
+        position: relative;
+        width: 160px;
+        height: 160px;
+        /* background-color: #2F3031; */
+        border-radius: 100%;
+       /* background-color: antiquewhite; */
+       cursor: pointer;
+        border: solid 10px #242526;
+    }
+    #displaypic img{
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        object-fit: cover;
+     
+    }
+    #uploadicon {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #4E4F50;
+       
+        color: white;
+       font-size: 35px;
+     
+        width: 50px;
+        height: 50px;
+        
+        border-radius: 100%;
+        cursor: pointer;
+    }
+    
+    #username{
+    width: 30%;
+    height: 100%;
+    background-color: #2F3031;
+    display: flex;
+    padding-top: 25px;
+    padding-left: 20px;
+    gap: 10px;
+    flex-direction: column;
+    }
+    #name h3{
+        font-size: 35px;
+        text-transform: capitalize;
+        font-weight: 600;
+        color: white;
+    }
+    #totalfriends h4{
+        font-size: 15px;
+        text-transform: capitalize;
+        color:  white;
+        font-weight: 300;
+        padding-left: 5px;
+    }
+    #edit{
+        width: 57%;
+        height: 100%;
+        background-color: #2F3031;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 100px;
+    }
+    #edit button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 150px;
+        height: 30px;
+        background-color: #4E4F50;
+        border: none;
+        outline: none;
+        border-radius: 9px 9px;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    #uploadprofile{
+        display: none;
+    
+    }
+    #introhead h1{
+        color: white;
+        font-weight: 500;
+    }
+    
+    #show img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    #postsubmit{
+        display: none;
+    }
+    
+    #inputpost{
+        width: 80%;
+        height: 100%;
+        background-color: aquamarine;
+        border-radius: 20px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    #inputpost form{
+      
+        width: 100%;
+        height: 100%;
+    }
+    #inputpost input{
+        color: white;
+        background-color: #4E4F50;
+        padding-left: 10px;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        border-radius: 20px 20px;
+      
+        
+    }
+    #inputpost ::placeholder{
+        color: white;
+        font-size: 15px;
+    }
+    #writee{
+        gap: 20px;
+        align-items: center;
+        height: 40%;
+        width: 100%;
+        display: flex;
+        /* background-color: aqua; */
+    }
+    
+    #uploadpostphoto{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    flex-direction: column;
+        width: 100%;
+        height: 50%;
+        /* background-color: bisque; */
+    }
+    #uploadpostphoto button {
+     border-radius: 9px 9px;
+        width: 90%;
+        outline: none;
+        border: none;
+        height: 50%;
+        background-color: #4E4F50;
+        color: white;
+        font-size: 15px;
+        font-weight: 300;
+        cursor: pointer;
+    }
+    
+    #uploadpic {
+        width: 50px;
+        height: 50px;
+        /* background-color: yellowgreen; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    #uploadpic i{
+        
+        cursor: pointer;
+        color: white;
+        font-size: 20px;
+    }
+    
+    #main2{
+        width: 100%;
+      
+        background-color: #18191A;
+        
+        height: auto;
+      display: flex;
+      align-items: start;
+      
+    }
+    #intro{
+        width: 30%;
+        height: 50vh;
+        background-color: #18191A;
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        
+    }
+    #introduction{
+        height: 80%;
+        width: 90%;
+        background-color: #242526;
+        border-radius: 9px 9px;
+    }
+    #Post{
+        padding-top: 10px;
+        width: 70%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: #18191A;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+        
+    }
+    #post1{
+        width: 100%;
+        height: auto;
+        min-height: 20vh;
+        background-color: #242526;
+        border-radius: 9px 9px;
+        max-width: 100%;
+        word-wrap: break-word;
+        /* padding-left: 10px; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        justify-content: space-between;
+    }
+    #posteddp{
+        width: 6.5vh;
+        height: 6.5vh;
+        /* background-color: #4E4F50; */
+        border-radius: 100%;
+        overflow: hidden;
+    }
+    #posteddp img{
+        width: 100%;
+        height: 100%;
+    }
+    #posttextdiv{
+        width: 95%;
+        height: 100%;
+        /* background-color: #5f6263; */
+       
+    }
+    #posttextdiv h3{
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    
+    }
+    #postarea{
+        width: 80%;
+        /* height: 20vh; */
+        /* background-color: blueviolet; */
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    #align{
+        width: 80%;
+        height: 100%;
+        /* background-color: chartreuse; */
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    #posting{
+        width: 80%;
+        height: 20vh;
+        background-color: #242526;
+    display: flex;
+    padding-top: 15px;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    border-radius: 9px 9px;
+    }
+    #postdp{
+        width: 8vh;
+        height: 8vh;
+        background-color: #4E4F50;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+    #postdp img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    #postform{
+        width: 100%;
+        height: 40%;
+        /* background-color: aliceblue; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        gap: 10px;
+    }
+    #postpicupload{
+        width: 6vh;
+        height:6vh;
+        /* background-color: rgb(1, 2, 2); */
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ri-video-upload-line{
+        font-size: 25px;
+    color: #B1B4B8 ;
+    }
+    
+    #cap{
+        width: 90vh;
+        height: 7vh;
+        border-radius: 9px 9px;
+        outline: none;
+        border: none;
+        padding-left: 10px;
+        background-color: #4E4F50;
+       
+    }
+    #cap::placeholder{
+        color:#B1B4B8 ;
+    }
+    #cap::placeholder{
+        font-size: 17px;
+    }
+    #submitpost{
+        width: 100%;
+        height: 30%;
+        /* background-color: rgb(24, 18, 11); */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #submitpost > button{
+        width: 70%;
+        height: 100%;
+        outline: none;
+        border: none;
+        border-radius: 9px 9px;
+        font-size: 20px;
+        font-weight: 700;
+        background-color: #4E4F50;
+        color:#B1B4B8 ;
+    }
+    #postedtopel{
+        width: 95%;
+        height: 10%;
+        /* background-color: aquamarine; */
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-between;
+    }
+    #postedusername{
+        width: auto;
+        max-width: 80%;
+        /* background-color: chartreuse; */
+    }
+    #postedusername h3{
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: capitalize;
+        font-size: 18px;
+    }
+    #postmoreicon{
+        width: 5%;
+        height: 10%;
+        /* background-color: aqua; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #postmoreicon i{
+        font-size: 23px;
+        color: white;
+        position: relative;
+    }
+    #likeANDcomment{
+        display: flex;
+        width: 100%;
+        padding: 15px;
+        border-top: solid 1px gray;
+        border-bottom: solid 1px gray;
+        /* background-color: aqua; */
+    }
+    #likepost{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    
+    }
+    #likepost button{
+        width: 90%;
+        /* height: 100%; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        gap: 5px;
+        border-radius: 9px 9px;
+        outline: none;
+        border: none;
+        color: white;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    #commentpost{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+    #commentpost button{
+        width: 90%;
+        /* height: 100%; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 8px;
+        border-radius: 9px 9px;
+        outline: none;
+        border: none;
+        color: white;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    #commentpost>button:hover{
+        background-color: #4E4F50;
+    }
+    
+    #likepost>button:hover{
+        background-color: #4E4F50;
+    }
+    #menuList{
+        width: 20vh;
+        min-height: 10vh;
+        max-height: 30vh;
+        background-color: #242526;
+        position: absolute;
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+       flex-direction: column;
+       display: none;
+        box-shadow: -5px 10px 20px 5px #090808
+    }
+    #updatepost{
+        width: 100%;
+        height: 50%;
+       display: flex;
+        align-items: center;
+        justify-content: center;
+       
+    }
+    #updatepost a{
+    font-size: 2vh;
+    color: white;
+    text-transform: capitalize;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px 5px;
+    }
+    #updatepost>a:hover{
+    background-color: #4E4F50;
+    }
+    #deletepost{
+        width: 100%;
+        height: 50%;
+       
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    #deletepost a{
+        font-size: 2vh;
+        color: white;
+        text-transform: capitalize;
+        width: 90%;
+        height: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px 5px;
+        }
+        #deletepost>a:hover{
+        background-color: #4E4F50;
+        }
+    
+        #postimg{
+            width: 70vh;
+            height: 70vh;
+            /* background-color: azure; */
+            border-radius: 9px 9px;
+            overflow: hidden;
+        }
+        #postimg img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* background-color: azure; */
+        }

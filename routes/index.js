@@ -9,6 +9,7 @@ var Path = require("path")
 var multer = require("multer")
 passport.use(new localStrategy(userdata.authenticate()))
 
+
 function isloggedin(req, res, next) {
   if (req.isAuthenticated()) {
     next()
@@ -38,8 +39,19 @@ const storage2 = multer.diskStorage({
     cb(null, fn)
   }
 })
+const storage3 = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/images/coverphotos')
+  },
+  filename: function (req, file, cb) {
+    var dt = new Date()
+    var fn = Math.floor(Math.random() * 100000000) + dt.getTime() + Path.extname(file.originalname)
+    cb(null, fn)
+  }
+})
 const upload = multer({ storage: storage })
 const postUpload = multer({ storage: storage2 })
+const coverupload = multer({ storage: storage3 })
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index',);
@@ -76,7 +88,7 @@ router.post("/login", passport.authenticate('local', {
 }), function (req, res, next) { })
 
 router.get("/loggedin", isloggedin, function (req, res, next) {
-  userdata.findOne({ username: req.session.passport.user }).then(function (u) {
+  userdata.findOne({ username: req.session.passport.user }).populate("post").then(function (u) {
     res.render("loggedin", { userdata: u })
   })
 
@@ -116,7 +128,7 @@ router.get("/search/:input", isloggedin, function (req, res, next) {
 })
 router.get("/dp", isloggedin, function (req, res, next) {
   userdata.findOne({ username: req.session.passport.user }).then(function (user) {
-    // console.log(user)
+
     res.json({ profile: user })
 
 
@@ -129,8 +141,9 @@ router.get("/findall", isloggedin, function (req, res, next) {
   })
 })
 
-router.get("/usersprofilepage/:userid",isloggedin,function(req,res,next){
-  userdata.findOne({_id:req.params.userid}).then(function(found){
+router.get("/profile/:userid",isloggedin, async function(req,res,next){
+  userdata.findOne({_id:req.params.userid}).populate("post").then(function(found){
+
     res.render("userprofilepage", { founduser: found })
   })
 })
@@ -141,24 +154,30 @@ router.get("/usersprofilepage/:userid",isloggedin,function(req,res,next){
 
 router.post("/createpost",isloggedin,postUpload.single('post'), async function(req,res,next){
  var loggedinuser = await userdata.findOne({username:req.session.passport.user})
+ var date = new Date()
+var dat = date.getDate()
+var month = date.getMonth()
+var year = date.getFullYear()
+
  if(req.file === undefined){
   var createdpost = await post.create({
     userpost: loggedinuser._id,
+    date: dat+"/"+month+"/"+year,
    postdetails:req.body.postcaption
- 
-   
-  })
+ })
  }else{
   var createdpost = await post.create({
-    userpost: loggedinuser._id,
+    userpost:loggedinuser._id,
+    date:dat+"/"+month+"/"+year,
    postdetails:req.body.postcaption,
-   postPic:req.file.filename
+   postPic:req.file.filename,
+   fileType:req.file.mimetype
    
   })
  }
 
 
-  console.log(req.file)
+
   loggedinuser.post.push(createdpost._id)
   await loggedinuser.save()
   
@@ -173,7 +192,39 @@ router.post("/findposts",isloggedin, async function(req,res,next){
 })
  
 
+router.post("/setcoverpic",isloggedin,coverupload.single("coverphoto"), async function(req,res,next){
+  var updatedata = await userdata.findOne({username:req.session.passport.user})
+   updatedata.coverphoto=req.file.filename
+   
+   updatedata.save()
+    res.redirect("back")
+   
+
+   } )
+
+   router.post("/feedPost",isloggedin,async function(req,res,next){
+    var feedData = await userdata.find().populate("post")
+   res.json({feed:feedData})
+   })
 
 
+
+   router.get("/addFriend/:id",isloggedin, async function(req,res,next){
+    var clickedUser = await userdata.findOne({_id:req.params.id}).populate("friends")
+  
+    var currentUser = await userdata.findOne({username:req.session.passport.user}).populate("friends")
+
+    friends.create({
+      friendreqsent:clickedUser
+    })
+
+
+      clickedUser.friends.push(currentUser )
+      await clickedUser.save()
+    console.log("hellow",currentUser)
+   
+   res.redirect("back")
+
+   })
 
 module.exports = router;

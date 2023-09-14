@@ -6,13 +6,13 @@
 
             <div id="profilepage">
                 <div id="coverphoto">
-                    <div id="cphoto"><img src="../images/uploads/coverDefault.jpg" alt=""></div>
+                    <div id="cphoto"><img src="/images/coverphotos/<%=founduser.coverphoto%>" alt=""></div>
                 </div>
                 <div id="profilephoto">
                     <div id="displaypic">
                         <div id="uploadicon"><i class="ri-camera-fill"></i></div>
                         <form id="uploadprofile" action="/uploadprofile" method="post" enctype="multipart/form-data">
-                            <input id="select" type="file" name="profileimg" onchange="submit()">
+                            <input id="select" type="file" name="profileimg">
                             
                         </form>
                         <img src="../images/uploads/<%=founduser.profile%>" alt="">
@@ -29,52 +29,58 @@
 
                     <div id="edit">
                         <button>
-                            <div id="editicon"><i class="ri-user-add-fill"></i></div> Add Friend
+                            <div id="editicon"><i class="ri-user-add-fill"></i></div><a href="/addFriend/<%=founduser._id%>">Add Friend</a> 
                         </button>
                     </div>
                 </div>
             </div>
-            <div id="intro">
-                <div id="introduction">
-                   <div id="introhead"><h1>Intro</h1></div>
-                    <div id="introfrom">From <h4> <%=founduser.First_Name +" "+ founduser.Last_name%> </h4></div>
-                    <div id="introwent">Went to <h4> eagea </h4></div>
-                    <div id="introjoin">Joined on <h4> aetg</h4></div>
-                    <div id="adddetails"><button><h4>Edit details</h4></button></div>
-                     <div id="addhobbies"><button><h4>Add Hobbies</h4></button></div>
-                </div>
-                <div id="postpage">
-                    <div id="post">
-                        <div id="show"><img src="../images/uploads/<%=founduser.profile%>" alt=""></div>
-                        <div id="inputpost"> <form action="">
-                            <input type="text" name="postcaption" placeholder="What's on your mind?">
-                            <input  id="postsubmit" type="submit">
-                        </form></div>
-                        <div id="uploadpostphoto">
-                            <form action="" enctype="multipart/form-data">
-                            <input type="file" name="post" >
-                            <input type="submit">
-                        </form></div>
-                    </div>
-                    
-                </div>
+           
+        </div>
+    </div>
+    <div id="main2">
+        <div id="intro">
+            <div id="introduction">
+
             </div>
+        </div>
+        <div id="Post">
+         <div id="postarea">
+          
+            <%founduser.post.reverse().forEach(function(b){%>
+             <%console.log(b.postPic)%>
+            <div id="post1">    
+                <div id="postedtopel">
+                    <div id="align">     <div id="posteddp"> <img src="../images/uploads/<%=founduser.profile%>" alt=""></div>
+                <div id="postedusername"><h3><%=founduser.First_Name +" "+ founduser.Last_name%></h3></div></div>
+               
+                <div id="postmoreicon"><i class="ri-more-line">
+                    <div id="menuList">
+                        <div id="updatepost"><a href="">update</a></div>
+                        <div id="deletepost"><a href="">Delete</a></div>
+                        </div>
+                    </i>
+                    </div>
+                </div><
+               <div id="posttextdiv"><h3><%=b.postdetails%></h3></div>
+                <div id="postimg">
+                    <img src="/images/postuploads/<%=b.postPic%>" alt="">
+                    </div>
+                <div id="likeANDcomment">
+                <div id="likepost"> <button><i class="ri-thumb-up-fill"></i><h3>Like</h3></button></div>
+                <div id="commentpost">  <button><i  class="ri-chat-3-line"></i>
+           <h3>Comment</h3></button></div>
+                </div>
+                </div>
+            <%})%>
+
+            </div>
+
+
         </div>
     </div>
 
     <script>
-        // var select = document.querySelector("#select")
-        // var submit = document.querySelector("#submit")
-        // var clickdiv = document.querySelector("#displaypic")
-         
-        // clickdiv.addEventListener("click",function(){
-        //     select.click()
-            
-        // })
-        // function submit(){
-        //     var upload = document.querySelector("#uploadprofile")
-        //     upload.submit()
-        // }
+      
          
 
     </script>

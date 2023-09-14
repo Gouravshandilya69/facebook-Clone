@@ -1,17 +1,15 @@
 const mongoose = require("mongoose")
 
 
-
-
-
-
 var postschema = mongoose.Schema({
 userpost:String,
+date:String,
 postdetails :String,
 postPic:{
   type:String,
-  default:"null"
+  default:null
 },
+fileType:String,
 like:[{
   type:mongoose.Schema.Types.ObjectId,
   ref:"users"

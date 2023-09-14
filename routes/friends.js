@@ -11,9 +11,15 @@ var friends = mongoose.Schema({
     default:[]
   },
   friends:{
-    type:mongoose.Schema.Types.ObjectId,
+    type:Array,
     default:[]
-  }
+  },
+  dataof:[{
+  
+      type:mongoose.Schema.Types.ObjectId,
+      ref:"users"
+
+  }]
 })
 
 

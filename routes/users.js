@@ -20,9 +20,18 @@ var userschema = mongoose.Schema({
     default:"default.png"
   }
   ,
+  coverphoto:{
+    type:String,
+    default:"coverdefault.png"
+  }
+  ,
   post:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:"post"
+  }],
+  friends:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"friends"
   }]
 
 })

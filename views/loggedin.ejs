@@ -6,31 +6,8 @@
 
       </div>
       <div id="div2">
-        <!-- <div id="post">
-          <div id="posted">
-            <div id="titleeee">
-              <div id="dp1"><a id="justin" href="/profilepage"><img src='../images/uploads/<%=userdata.profile%>' alt=""></a></div>
-              <div id="usernaaam">
-                <h4>
-                  <%=userdata.First_Name +" "+ userdata.Last_name%></h4></div>
-  </div>
-  <div id=" headpost">
-                    <div id="postpic"><img src="" alt=""></div>
-              </div>
-              <div id="likecom">
-                <div id="like"><button>
-                    <div id="likeicon"><i class="ri-thumb-up-line"></i></div>like
-                  </button></div>
-                <div id="comment"><button>
-                    <div id="commenticon"><i class="ri-chat-3-line"></i></div> comment
-                  </button></div>
-              </div>
-            </div>
-          </div> -->
-
-
-
-        </div>
+     
+      </div>
         <div id="div3" >
           <div id="contacts">
             <h3>contacts</h3>
@@ -46,7 +23,6 @@
           </div>
         </div>
 
-
       </div>
     </div>
   </div>
@@ -54,6 +30,7 @@
     integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
+    var postDiv = document.querySelector("#div2")
     var friends = document.querySelector("#friendss")
     axios.get("/findall").then(function (alluser) {
       var clutter2 = ``
@@ -61,17 +38,46 @@
       alluser.data.alluser.forEach(function (all) {
         clutter2 += ` <div id="friends">
               <div id="dp">
-                <a href="/usersprofilepage/${all._id}"> <img src="../images/uploads/${all.profile}" alt=""></a>
+                <a href="/profile/${all._id}"> <img src="../images/uploads/${all.profile}" alt=""></a>
                
           </div>
-              <div id="username"> <a href="/usersprofilepage/${all._id}"><h3>${all.First_Name + " " + all.Last_name}</h3></a></div>
+              <div id="username"> <a href="/profile/${all._id}"><h3>${all.First_Name + " " + all.Last_name}</h3></a></div>
               </div>`
 
       })
       friends.innerHTML = clutter2
-      console.log(clutter2)
     })
 
+    function findPosts(){
+      var clutter3 =`` 
+      axios.post("/feedPost").then(function(feed){
+        feed.data.feed.forEach(function(a){
+          a.post.forEach(function(feedPost){
+
+       
+            
+            clutter3 +=`
+            <div id="postarea">
+              <div id="postHeading">
+                <div id="postprofileimg"> <img src="../images/uploads/${a.profile}" alt=""> </div>
+                <div id="postHeadingName"><h3>gourav shandilya</h3> <h4>${feedPost.date}</h4></div>
+                </div>
+              <div id="imgarea">
+                <img src="../images/postuploads/${feedPost.postPic}" alt="">
+                </div>
+              <div id="likeANDcomment"></div>
+      </div>
+            `
+
+        
+
+
+            postDiv.innerHTML = clutter3
+          })
+        })
+      })
+    }
+  findPosts()
 
 
   </script>
