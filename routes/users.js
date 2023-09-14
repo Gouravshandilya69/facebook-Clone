@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const plm = require("passport-local-mongoose")
 
 
-mongoose.connect("mongodb+srv://gouravshandilya48:G@urav9605@facebook.qke8spf.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://Facebook:i7ScCPQ3yN7nNZpQ@facebook.yfnoifi.mongodb.net/?retryWrites=true&w=majority")
 
 var userschema = mongoose.Schema({
   First_Name:String,
