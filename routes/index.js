@@ -161,12 +161,14 @@ var year = date.getFullYear()
 
  if(req.file === undefined){
   var createdpost = await post.create({
+    name:loggedinuser.First_Name + loggedinuser.Last_name,
     userpost: loggedinuser._id,
     date: dat+"/"+month+"/"+year,
    postdetails:req.body.postcaption
  })
  }else{
   var createdpost = await post.create({
+    name:loggedinuser.First_Name + " " + loggedinuser.Last_name,
     userpost:loggedinuser._id,
     date:dat+"/"+month+"/"+year,
    postdetails:req.body.postcaption,

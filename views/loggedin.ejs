@@ -53,14 +53,14 @@
       axios.post("/feedPost").then(function(feed){
         feed.data.feed.forEach(function(a){
           a.post.forEach(function(feedPost){
-
+            console.log(feedPost)
        
             
             clutter3 +=`
             <div id="postarea">
               <div id="postHeading">
                 <div id="postprofileimg"> <img src="../images/uploads/${a.profile}" alt=""> </div>
-                <div id="postHeadingName"><h3>gourav shandilya</h3> <h4>${feedPost.date}</h4></div>
+                <div id="postHeadingName"><h3>${feedPost.name}</h3> <h4>${feedPost.date}</h4></div>
                 </div>
               <div id="imgarea">
                 <img src="../images/postuploads/${feedPost.postPic}" alt="">
